@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+  }
+
+
+
+  html{
+    font-size: 1.5vw;
+}
+
+:root {
+    --main: #6495ed;
+    --lapRowsEven:#576269;
+    --lapRowsEvenHover:#4eb1ee;
+    --lapRowsOdd:#1ab675;
+    --lapRowsOddHover:#44f8ad;
+    --mainSzoveg:#681919;
+  }
+
+body {
+    background-color:var(--main);
+}
+
+
+.mainFrame{
+    border-style: solid;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stopwatchFrame {
+    border-style: solid;
+    height: 100%;
+    width: 100%; 
+
+    .stopwatchUpperScreen{
+        border-style: solid;
+        height: 80%;
+        width: 100%;
+        overflow: auto;
+        font-size: clamp(16px, 1.3rem, 1000px);
+        line-height: 200%;
+
+
+
+    
+        /*#ido{
+            background-color:var(--mainSzoveg);
+        }*/
+
+        #ido{
+           // font-size: 1.5rem;
+            font-size: clamp(17px, 1.5rem, 1000px);
+            background-color:#00FFFF;
+        }
+       
+        .parentContainerDiv{
+            border-bottom-style:solid;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style-position: inside; // ez csinálja azt, hogy a számozás pl 10 nél több lapnál
+            //nem csúszik el, hanem a kereten belül marad!!
+            align-items: stretch;
+             //padding-left: 0.5em;
+           // padding-left: 1.2em;
+           
+             
+            .childLapPTag{
+                padding-right: 5%;
+                // ez azért, hogy amikor a start után adok hozzá uj lapokat a settings és a lapok tartalma között
+            //legyen látszatra egy kis hely, de igazabol meg kattintásból a laphez fog tartozni
+                flex-grow: 7;
+                width: 70%;
+                word-break: break-all;
+                margin-left: 1em;
+            }
+
+            .childLapPTagForSaved{
+                flex-grow: 7;
+                width: 70%;
+                word-break: break-all;
+                margin-left: 1em;
+               /* word-wrap: break-word;
+                overflow-wrap: break-word; */
+                /*display: flex;//nem biztos, hogy kell
+                flex-wrap: wrap;//nem biztos, hogy kell*/
+               // line-break: anywhere;
+                
+            }
+
+
+
+            .settingsDivClassName{
+                //margin-right: 0.4em;
+                min-width: 100px;
+                flex-grow: 4;
+                background-color: khaki;
+                color:#00FFFF;
+                display: flex;
+                word-break: break-all;
+                justify-content: center;
+                display: flex; // ez azért kell, hogy amikor a settingsre kattintok és uj divek jelennek meg akkor
+                //wrappeljenek
+                flex-wrap: wrap;//
+                
+                
+               // align-self: stretch;
+                //flex-wrap: nowrap;
+            }/*ezt azért állítottam be, mert enélkül amikor ide oda állítom az oldal méretét
+            a lap piccitt megtörik a settingsnél lesz egy kis overflow amit a csúszkával
+            mozgathatok is*/
+        }
+    
+
+        .parentContainerDiv:nth-child(even) {
+        background-color:var(--lapRowsEven);
+    }
+
+    .parentContainerDiv:nth-child(even):hover {
+        background-color:var(--lapRowsEvenHover);
+        //font-size: clamp(16px, 2rem, 1000px);
+    }
+
+    .parentContainerDiv:nth-child(odd) {
+        background-color:var(--lapRowsOdd);
+       
+    }
+
+    .parentContainerDiv:nth-child(odd):hover {
+        background-color:var(--lapRowsOddHover);
+        //font-size: clamp(16px, 2rem, 1000px);
+    }  
+
+    .childLapPTagForSaved:nth-child(even):hover{
+       // background-color:var(--lapRowsEvenHover);
+        font-size: clamp(16px, 2rem, 1000px);
+    }
+    
+    .childLapPTagForSaved:nth-child(odd):hover {
+        //background-color:var(--lapRowsOddHover);
+        font-size: clamp(16px, 2rem, 1000px);}
+        
+    
+    #placeForMainTimeForLoading{
+       background-color: greenyellow;
+    }
+    .settingsDivClassName{
+       // height: 100%;
+        width: 10%;
+        opacity: 70%;
+    }
+
+    .settingsDivClassName:hover{
+       // height: 100%;
+        width: 10%;
+        opacity: 100%;
+        border-bottom-style: solid;
+        
+    }
+    
+
+    }
+
+    .stopwatchBottomScreen{
+        border-style: solid;
+        height: 20%;
+        width: 100%;
+        display: flex; // azért kell, hogy a gombok pl(new,start stb) egymáss mellé rendeződjenek
+        div:hover {
+            //background-color: blue;
+            font-size: clamp(17px, 1.1rem, 1000px);
+          }
+
+          .button{
+            height:100%;
+            width: 20%;
+            border-style: solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(16px, 0.9rem, 1000px);
+        }
+    }
+
+}
+
+#deleteAllDiv{
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    font-size: clamp(17px, 1.1rem, 1000px);
+}
+
+#deleteAllDiv:hover {
+    //background-color: blue;
+    font-size: clamp(17px, 1.3rem, 1000px);
+  }
+
+
+
+@media only screen and (min-width:632px){
+    .stopwatchFrame {
+    border-style: solid;
+    height: 80%;
+    width: 80%; 
+    .stopwatchUpperScreen{
+        font-size: clamp(16px, 1.4*0.8rem, 1000px);
+/* azéet van megszorozva ennyivel a.8 al, mert a keretett enyivel csökkentettem szélességben és, hogy 
+arányban maradjon */
+        #ido{
+            
+             font-size: clamp(17px, 1.5*0.8rem, 1000px);
+    
+         }
+    }
+
+}
+.stopwatchBottomScreen{
+
+    div:hover {
+        font-size: clamp(17px, 1.1*0.8rem, 1000px);
+        color: rgb(16, 85, 53);
+      }
+
+      .button{
+        font-size: clamp(16px, 0.9*0.8rem, 1000px);
+        
+    }
+}
+
+}
+
+
+@media only screen and (min-width:950px){
+    .stopwatchFrame {
+    border-style: solid;
+    height: 80%;
+    width: 50%; 
+   .stopwatchUpperScreen{
+        font-size: clamp(16px, 1.4*0.5rem, 1000px);
+        #ido{
+            // font-size: 1.5rem;
+             font-size: clamp(17px, 1.5*0.5rem, 1000px);
+             background-color:#00FFFF ;
+         }
+    }
+    
+}
+.stopwatchBottomScreen{
+
+    div:hover {
+        font-size: clamp(17px, 1.1*0.5rem, 1000px);
+      }
+
+      .button{
+       // font-size:var(--mainFontSize);
+       font-size: clamp(16px, 0.9*0.5rem, 1000px);
+    }
+}
+
+}
+
+
+.renameInsideSettings{
+    background-color: lawngreen;
+    width: 100%;
+}
+
+.deleteInSettings{
+    background-color: rgb(26, 184, 73);
+    width: 100%;
+}
+
+
+.settingsInsideDivClassName{
+    width: 100%;
+} // ez azért fontos, hogy a settings teljes szélességében kattintható legyen
+
+

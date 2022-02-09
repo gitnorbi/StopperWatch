@@ -1,0 +1,264 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 1.5vw;
+}
+
+:root {
+  --main: #6495ed;
+  --lapRowsEven:#576269;
+  --lapRowsEvenHover:#4eb1ee;
+  --lapRowsOdd:#1ab675;
+  --lapRowsOddHover:#44f8ad;
+  --mainSzoveg:#681919;
+}
+
+body {
+  background-color: var(--main);
+}
+
+.mainFrame {
+  border-style: solid;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stopwatchFrame {
+  border-style: solid;
+  height: 100%;
+  width: 100%;
+}
+
+.stopwatchFrame .stopwatchUpperScreen {
+  border-style: solid;
+  height: 80%;
+  width: 100%;
+  overflow: auto;
+  font-size: clamp(16px, 1.3rem, 1000px);
+  line-height: 200%;
+  /*#ido{
+            background-color:var(--mainSzoveg);
+        }*/
+}
+
+.stopwatchFrame .stopwatchUpperScreen #ido {
+  font-size: clamp(17px, 1.5rem, 1000px);
+  background-color: #00FFFF;
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv {
+  border-bottom-style: solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style-position: inside;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  /*ezt azért állítottam be, mert enélkül amikor ide oda állítom az oldal méretét
+            a lap piccitt megtörik a settingsnél lesz egy kis overflow amit a csúszkával
+            mozgathatok is*/
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv .childLapPTag {
+  padding-right: 5%;
+  -webkit-box-flex: 7;
+      -ms-flex-positive: 7;
+          flex-grow: 7;
+  width: 70%;
+  word-break: break-all;
+  margin-left: 1em;
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv .childLapPTagForSaved {
+  -webkit-box-flex: 7;
+      -ms-flex-positive: 7;
+          flex-grow: 7;
+  width: 70%;
+  word-break: break-all;
+  margin-left: 1em;
+  /* word-wrap: break-word;
+                overflow-wrap: break-word; */
+  /*display: flex;//nem biztos, hogy kell
+                flex-wrap: wrap;//nem biztos, hogy kell*/
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv .settingsDivClassName {
+  min-width: 100px;
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+  background-color: khaki;
+  color: #00FFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  word-break: break-all;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv:nth-child(even) {
+  background-color: var(--lapRowsEven);
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv:nth-child(even):hover {
+  background-color: var(--lapRowsEvenHover);
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv:nth-child(odd) {
+  background-color: var(--lapRowsOdd);
+}
+
+.stopwatchFrame .stopwatchUpperScreen .parentContainerDiv:nth-child(odd):hover {
+  background-color: var(--lapRowsOddHover);
+}
+
+.stopwatchFrame .stopwatchUpperScreen .childLapPTagForSaved:nth-child(even):hover {
+  font-size: clamp(16px, 2rem, 1000px);
+}
+
+.stopwatchFrame .stopwatchUpperScreen .childLapPTagForSaved:nth-child(odd):hover {
+  font-size: clamp(16px, 2rem, 1000px);
+}
+
+.stopwatchFrame .stopwatchUpperScreen #placeForMainTimeForLoading {
+  background-color: greenyellow;
+}
+
+.stopwatchFrame .stopwatchUpperScreen .settingsDivClassName {
+  width: 10%;
+  opacity: 70%;
+}
+
+.stopwatchFrame .stopwatchUpperScreen .settingsDivClassName:hover {
+  width: 10%;
+  opacity: 100%;
+  border-bottom-style: solid;
+}
+
+.stopwatchFrame .stopwatchBottomScreen {
+  border-style: solid;
+  height: 20%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.stopwatchFrame .stopwatchBottomScreen div:hover {
+  font-size: clamp(17px, 1.1rem, 1000px);
+}
+
+.stopwatchFrame .stopwatchBottomScreen .button {
+  height: 100%;
+  width: 20%;
+  border-style: solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: clamp(16px, 0.9rem, 1000px);
+}
+
+#deleteAllDiv {
+  background-color: burlywood;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: clamp(17px, 1.1rem, 1000px);
+}
+
+#deleteAllDiv:hover {
+  font-size: clamp(17px, 1.3rem, 1000px);
+}
+
+@media only screen and (min-width: 632px) {
+  .stopwatchFrame {
+    border-style: solid;
+    height: 80%;
+    width: 80%;
+  }
+  .stopwatchFrame .stopwatchUpperScreen {
+    font-size: clamp(16px, 1.12rem, 1000px);
+    /* azéet van megszorozva ennyivel a.8 al, mert a keretett enyivel csökkentettem szélességben és, hogy 
+arányban maradjon */
+  }
+  .stopwatchFrame .stopwatchUpperScreen #ido {
+    font-size: clamp(17px, 1.2rem, 1000px);
+  }
+  .stopwatchBottomScreen div:hover {
+    font-size: clamp(17px, 0.88rem, 1000px);
+    color: #105535;
+  }
+  .stopwatchBottomScreen .button {
+    font-size: clamp(16px, 0.72rem, 1000px);
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .stopwatchFrame {
+    border-style: solid;
+    height: 80%;
+    width: 50%;
+  }
+  .stopwatchFrame .stopwatchUpperScreen {
+    font-size: clamp(16px, 0.7rem, 1000px);
+  }
+  .stopwatchFrame .stopwatchUpperScreen #ido {
+    font-size: clamp(17px, 0.75rem, 1000px);
+    background-color: #00FFFF;
+  }
+  .stopwatchBottomScreen div:hover {
+    font-size: clamp(17px, 0.55rem, 1000px);
+  }
+  .stopwatchBottomScreen .button {
+    font-size: clamp(16px, 0.45rem, 1000px);
+  }
+}
+
+.renameInsideSettings {
+  background-color: lawngreen;
+  width: 100%;
+}
+
+.deleteInSettings {
+  background-color: #1ab849;
+  width: 100%;
+}
+
+.settingsInsideDivClassName {
+  width: 100%;
+}
